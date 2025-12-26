@@ -1,0 +1,40 @@
+.removeService{
+    width:100%;
+    text-align: center;
+}
+
+.appointmentContainer{
+    position: relative;
+    z-index:0;
+}
+
+.input, .removeService, 
+.addService, .cancel, .submit{
+    z-index: 3;
+    position: relative;
+}
+
+.addService,
+.cancel,
+.submit{
+    text-align: center;
+}
+
+.customerImg{
+    border-radius: 10px;
+}
+
+.row > .imageContainer{
+    padding-left:4%;
+    padding-right:4%;
+}
+
+@media screen and (min-width:1000px){
+    .appointmentContainer{
+        padding-left : 1%;
+        padding-right : 1%;
+    }
+    .cardBackground{
+        width:100%;
+    }
+}

@@ -1,0 +1,75 @@
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/scheduleCSS.ejs"); -%>
+
+
+    <div class="row no-gutters">
+        <div class="col-12 title1 elmMarginTop">Schedule Appointment</div>
+        <% if(customers.length !== 0){ %>
+            <div class="title2 col-12  elmMarginTop">Customer</div>
+            <div id="customerError" class="hidden error">Please select a customer</div>
+            <div class="row no-gutters customersContainer text">
+                <% for(x=0; x < customers.length; x++) { %> <!-- which allows us to change the background size based on the size of the appended elements -->
+                    <div class="col-12 col-md-6 col-lg-4 elmSmallestMarginTop customerContainer">
+                        <a class="buttonNeutral customerSelection">
+                            <div class="row no-gutters customerContentContainer">
+                                <div class="col-4">
+                                    <img class="customerImage" src="<%= customers[x].profileImage %>"/>
+                                </div>
+                                <div class="col-8">
+                                    <div class="textLarge verticalAlign"><%= customers[x].firstName %> <%= customers[x].lastName %></div>
+                                </div>
+                            </div><!-- End of nested Customer Row -->
+                        </a><!-- Customer Card End -->
+                        <div class="customersIDs hidden"><%= customers[x]._id %></div>
+                    </div><!-- Customer Container End -->
+                <% } %>
+            </div>
+           
+            
+            
+            <div class="title2 col-12 elmMarginTop">Service</div>
+            <div id="servicesError" class="col-12 hidden error">Please select a service</div>
+            <div class="row no-gutters servicesContainer textLarge">
+                <% for(x=0; x < services.length; x++) { %>
+                    <div class="col-6 col-md-4 col-lg-4 elmSmallestMarginTop">
+                        <a class="serviceSelection matchButtonSize buttonNeutral">
+                            <%= services[x].serviceName %>
+                        </a>
+                        <div class="hidden timeSlots"><%= services[x].timeSlots %></div>
+                        <div class="hidden serviceIDs"><%= services[x]._id %></div>
+                    </div>
+                <% } %>
+            </div>
+            
+
+
+            <div class="title2 col-12 elmMarginTop">Times</div>
+            <div id="timeError" class="hidden error">Please select a time</div>
+            <div id="timeContainer" class="row no-gutters hidden">
+                
+                <!-- This is appened when a service is selected -->
+                <!-- Found in servicesListeners, appendTimes, and appendSequece in /client/javascript/scheduling.js -->
+
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a class="buttonPrimary elmSmallMarginTop hidden" id="submitAppointmentButton">Create Appointment</a>
+            </div>
+            
+            
+        <% } else { %>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div>You don't have any customers</div>
+                <a href="/premiere/customers" class="buttonPrimary elmSmallestMarginTop">Create Customer</a>
+            </div>
+        <% } %>
+        
+        
+        
+    </div>
+
+
+
+
+
+<%- include("./includes/js/scheduleJS.ejs"); -%>
+<%- include("./includes/footer.ejs"); -%>

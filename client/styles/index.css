@@ -1,0 +1,32 @@
+/* Mobile Styles */
+#indexButtonSecondary, #indexButtonPrimary{
+    text-align: center;
+}
+
+#indexTitle{
+    margin-top : 45%;
+}
+
+@media screen and (min-width:500px){
+    #indexTitle{
+        text-align: center;
+    }
+    #indexButtonSecondary, #indexButtonPrimary{
+        width : 70%;
+        margin-left : 15%;
+        margin-right : 15%;
+    }
+    
+}
+
+
+@media screen and (min-width : 1000px) {
+    #indexTitle{
+        margin-top : 18%;
+    }
+    #indexButtonSecondary, #indexButtonPrimary{
+        width : 50%;
+        margin-left : 25%;
+        margin-right : 25%;
+    }
+}

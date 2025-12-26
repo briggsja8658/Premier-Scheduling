@@ -1,0 +1,62 @@
+ 
+                
+
+                
+            </div><!--End of div Main started in  header-->                       
+        </div><!-- End of Col-10 started in header -->
+        <div id="nav" class="col-12 hidden">
+            <div class="row no-gutters">
+                <div class="col-4 offset-1" id="headerName">
+                    <% if(name !== null) { %>
+                        Hi <%=name%>
+                    <% } else { %>
+                        Welcome
+                    <% } %>    
+                </div>
+                <div class="col-6 offset-1 col-md-4 offset-md-2" id="iconSelections">
+                    <a href="/today"><img src="/icon/home.png" alt="Home Icon" class="icon"/></a>
+                    <a href="/alerts"><img src="/icon/alert.png" alt="Notificaions Icon" class="icon"/></a>
+                    <a class="menuButton"><img src="/icon/menu.png" alt="Menu Icon" class="icon"/></a>
+                </div>
+            </div>
+            <div id="menu">
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/profile">
+                    <img class="menuIcon contentCenter" src="/icon/pencil.svg"/> 
+                    <span class="menuLinkText contentCenter">
+                        Edit Profile
+                    </span>
+                </a>
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/services">
+                    <img class="menuIcon contentCenter" src="/icon/tag.svg"/>
+                    <span class="menuLinkText contentCenter">
+                        Services
+                    </span>
+                </a>
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/appointments">
+                    <img class="menuIcon contentCenter" src="/icon/people.svg"/> 
+                    <span class="menuLinkText contentCenter">
+                        Appointments 
+                    </span>
+                </a>
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/customers">
+                    <img class="menuIcon contentCenter" src="/icon/people.svg"/> 
+                    <span class="menuLinkText contentCenter">
+                        Customers 
+                    </span>
+                </a>
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/schedule">
+                    <img class="menuIcon contentCenter" src="/icon/calendar.svg"/> 
+                    <span class="menuLinkText contentCenter">
+                        Schedule
+                    </span>
+                </a>
+                <a type="button" class="menuButton elmSmallMarginTop" id="closeMenu">x</a>
+            </div>  
+        </div>
+        <footer>
+            <script src="/js/styles.js" defer></script>  
+            <script src="/js/global.js" defer></script>
+            <script src="/js/controller.js" defer></script>
+        </footer>
+    </body><!-- End of body -->
+</html><!-- End of HTML started in header -->

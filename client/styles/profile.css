@@ -1,0 +1,153 @@
+#workingHoursContainer{
+    width : 100%;
+}
+
+#workingHours{
+    position: relative;
+    z-index: 0;
+}
+
+.removeBreakButton,
+.addBreakButton{
+    z-index: 10;
+}
+
+.addBreakButton,
+.removeBreakButton,
+.submitBreakButton{
+    text-align: center;
+}
+
+.workingDay{
+    position : relative;
+    z-index : 5;
+    text-align : center;
+    width : 100%;
+}
+
+#editProfileSubmit{
+    width : 100%;
+}
+
+#oldImage{
+    width : 30%;
+}
+
+.workingDayContent{
+    width : 100%;
+}
+
+.dayWrapper{
+    z-index: 1;
+}
+
+
+
+
+.workStart, 
+.workEnd,
+.breakStart,
+.breakStartSelect,
+.breakEnd,
+.breakEndSelect{
+    width:100%;
+}
+
+.dayOff > span,
+.dayOff > div > div > span,
+.workStartContainer > div > div > span,
+.workEndContainer > div > div > span,
+.breaksStart > div > div > span,
+.breaksEnd > div > div > span{
+    font-size: 5vw;
+}
+
+.dayOffSelect{
+    width:100%;
+}
+
+#timeOffContainer, #activeTimeOffContainer{
+    position : relative;
+    z-index: 1;
+}
+
+.timeOffBackground{
+    position : relative;
+    z-index: -1;
+}
+
+.timeOffDelete{
+    position: relative;
+    z-index: 5;
+}
+
+
+@media screen and (min-width:500px){
+    .dayOff > span,
+    .dayOff > div > div > span,
+    .workStartContainer > div > div > span,
+    .workEndContainer > div > div > span,
+    .breaksStart > div > div > span,
+    .breaksEnd > div > div > span{
+        font-size: 3vw;
+    }
+    .dayWrapper{
+        padding-left : 5% !important;
+        padding-right : 5% !important;
+    }
+    #editProfileSubmit{
+        width : 50%;
+        margin-left : 25%;
+        margin-right : 25%;
+    }
+    .buttonNeutral, .buttonPrimary, .buttonSecondary,
+    .buttonCaution{
+        margin-left:0;
+        margin-right:0;
+    }
+    #newServiceNameContainer, #newChargeContainer, #newTimeSlotContianer{
+        padding-left:3%;
+        padding-right:3%;
+    }
+}
+
+@media screen and (min-width:1000px){
+    .dayWrapper{
+        padding-left : 1% !important;
+        padding-right : 1% !important;
+    }
+    .workingDay{
+        width:100%;
+        padding:7%;
+    }
+    #generalEdit > div > div{
+        padding-left : 5%;
+        padding-right : 5%;
+    }
+    .dayOff > span,
+    .dayOff > div > div > span,
+    .workStartContainer > div > div > span,
+    .workEndContainer > div > div > span,
+    .breaksStart > div > div > span,
+    .breaksEnd > div > div > span,
+    select{
+        font-size: 1.5vw;
+    }
+    #newServiceNameContainer, #newChargeContainer, #newTimeSlotContianer, .newTimeSlotContainer{
+        padding-left:1%;
+        padding-right:1%;
+    }
+
+    #oldImage{
+        width : 20%;
+    }
+
+    .workTimesContainer > div,
+    .breakContainer > div{
+        margin-top : 8%;
+    }
+
+    .submitBreakButton, .addBreakButton, .removeBreakButton{
+        padding : 4%;
+    }
+}

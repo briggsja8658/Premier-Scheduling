@@ -1,0 +1,59 @@
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/todayCSS.ejs"); -%>
+
+    <div class="row no-gutters">
+        <h1 class="col-12 title1">Today</h1>
+        <% if(appointmentsToday.length !== 0){ %>
+            
+            <% for(x=0; x < appointmentsToday.length; x++) { %>
+                <div class="appointmentContainer col-12 col-md-6 col-lg-4">
+                    <div class="hidden timeID"><%= appointmentsToday[x].timeID %></div>
+                    <% if(x % 2 === 0)  { %> 
+                    <a class="altButtons1 elmSmallestMarginTop" id="<%= appointmentsToday[x].docID %>">
+                    <% } else { %>
+                    <a class="altButtons2 elmSmallestMarginTop" id="<%= appointmentsToday[x].docID %>">
+                    <% } %>
+                        <div class="row no-gutters">
+                            <div class="col-4">
+                                <img src="<%= customerImages[x] %>"/>
+                            </div>
+                            <div class="col-8">
+                                <div><%= appointmentsToday[x].customerName %></div> 
+                                <div><%= appointmentsToday[x].time %></div>
+                                <div><%= appointmentsToday[x].serviceName %></div>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="hidden detailsContainer cardBackground">
+                        <div class="appointmentNotesContainer elmSmallestMarginTop">
+                            <div class="title3">Notes</div>
+                            <% if(appointmentsToday[x].notes === "") { %>
+                                <div class="text">No notes</div>
+                                <div class="savedNotes hidden"></div>
+                            <% } else { %>
+                                <div class="savedNotes text"><%= appointmentsToday[x].notes %> </div>
+                            <% } %>
+                        </div>
+                        <div class="appointmentPicContainer elmSmallestMarginTop">
+                            <div class="title3">Appointment Picture</div>
+                            <% if(appointmentsToday[x].servicePic === ""){ %>
+                                <div class="text">None</div>
+                                <div class="servicePic hidden"></div>
+                            <% } else { %>
+                                <img class="servicePic" src="<%= appointmentsToday[x].servicePic %>" />
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <div class="col-12 col-md-6 col-lg-4 textLarge">
+                Your have no appointments for today
+            </div>
+        <% } %>
+    </div>
+
+
+    
+    <%- include("./includes/js/todayJS.ejs"); -%>
+    <%- include("./includes/footer.ejs"); -%>

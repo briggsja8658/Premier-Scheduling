@@ -1,0 +1,35 @@
+{
+	"name": "premier-scheduling",
+	"version": "0.2.0",
+	"description": "Dedicated scheduling app for hair dressers",
+	"main": "app.js",
+	"scripts": {
+		"test": "test",
+		"nodemon": "nodemon app.js",
+		"start": "node app.js"
+	},
+	"author": "Justin Briggs",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"bootstrap-icons": "^1.0.0-alpha2",
+		"buffer-image-size": "^0.6.4",
+		"chalk": "^3.0.0",
+		"cookie-parser": "^1.4.4",
+		"cors": "^2.8.5",
+		"ejs": "^3.0.1",
+		"express": "^4.17.1",
+		"image-size": "^0.9.3",
+		"jimp": "^0.13.0",
+		"mongodb": "^3.5.9",
+		"mongoose": "^5.9.18",
+		"multer": "^1.4.2",
+		"node-schedule": "^1.3.2",
+		"nodemon": "^1.19.4",
+		"randomstring": "^1.1.5",
+		"typescript": "^4.7.4"
+	},
+	"devDependencies": {
+		"@tsconfig/node16": "^1.0.3"
+	}
+}

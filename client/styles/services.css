@@ -1,0 +1,112 @@
+/* Styles for services */
+
+.serviceButton { 
+    position: relative;
+    z-index: 1;
+}
+
+.serviceButton, .serviceContent{
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+}
+
+.timeSelect{
+    width:100%;
+    padding:2%;
+}
+
+.timeSelect > option{
+    font-size: inherit;
+}
+
+div > .timeSlotContainer{
+    padding-left:0;
+    padding-right:0;
+}
+
+#newTimeSlotContianer{
+    width:100%;
+}
+
+#newServiceContainer{
+    animation-name : fadeIn;
+    animation-duration: .5s;
+}
+
+.serviceButton,
+.addTimeSlot,
+.deleteServiceButton,
+.submitButtonServices,
+.removeTimeSlot,
+#addService, #addNewTimeSlot, #submitNewService, #removeNewTimeSlot{
+    text-align: center;
+    z-index: 5;
+}
+
+.serviceContainer{
+    z-index: 1;
+}
+
+.timeSlotsRow{
+    margin: 0;
+}
+
+
+
+
+
+
+@media screen and (min-width:500px){
+    .newTimeLabel{
+        font-size:3vw;
+    }
+    .timeSlotContainer{
+        padding-right : 5% !important;
+    }
+    .serviceContainer{
+        padding-left:1%;
+        padding-right:1%;
+    }
+    #addService{
+        width:50%;
+    }
+
+    #removeNewTimeSlot,
+    #addNewTimeSlot,
+    #submitNewService{
+        width:100%;
+    }
+
+    .timeSelect{
+        padding-top:0;
+        padding-bottom:0;
+    }
+}
+
+@media screen and (min-width:1000px){
+    .serviceButton{
+        padding : 7%;
+    }
+
+    .timeLabel{
+        position : relative;
+        top : 50px;
+    }
+
+    .serviceContent > div > div > div > label{
+        position : relative;
+        top : 50px;
+    }
+
+    .serviceContent > div > div > div{
+        position : relative;
+        top : -50px;
+    }
+
+    .removeTimeSlot, .addTimeSlot, .deleteServiceButton, .submitButtonServices{
+        padding : 4%;
+    }
+
+    .newTimeLabel{
+        font-size : 1.8vw;
+    }
+}

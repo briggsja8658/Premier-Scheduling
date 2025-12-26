@@ -1,0 +1,123 @@
+
+
+
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/customersCSS.ejs"); -%>
+
+
+    <div class="row">
+        <h1 class="col-12 title1">Customer Panel</h1>
+        <% if(customers.length !== 0){ %>
+            <% for(x=0; x < customers.length; x++) { %>
+                
+                <div class="col-12 col-md-6 col-lg-4 customerContainer elmSmallestMarginTop elmSmallestMarginBottom">
+                    <% if(x % 2 === 0) { %>
+                    <a class="customerButton altButtons1 elmSmallestMarginTop customer elmPaddingTop elmPaddingBottom">
+                    <% } else { %>
+                    <a class="customerButton altButtons2 elmSmallestMarginTop customer elmPaddingTop elmPaddingBottom">
+                    <% } %>
+                    <div class="row no-gutters">
+                        <div class="col-4">
+                            <img class="selectedImg" src="<%= customers[x].profileImage %>" />
+                        </div>    
+                        <div class="col-8">
+                            <div class="customerButtonName textLarge verticalAlign"><%= customers[x].firstName %> <%= customers[x].lastName %></div>
+                        </div>
+                    </div>
+                </a>
+                <div class="customerInfo cardBackground hidden">
+                    <div class="customerText cardContent elmSmallMarginTop">
+                        <div class="customerName text"><%= customers[x].firstName %> <%= customers[x].lastName %></div>
+                        <div class="email text"><%= customers[x].email %></div>
+                        <div class="phoneNumber text"><%= customers[x].phoneNumber %></div>
+                    </div>
+                    <div class="customerForm hidden">
+                        <input value="<%= customers[x]._id %>" class="customerId" hidden />
+    
+                        <input value="<%= customers[x].firstName %> <%= customers[x].lastName %>" class="customerNameEdit input inputStyle inputText elmSmallMarginTop elmSmallMarginBottom" />
+                        <div class="textError hidden error">Customer Name is requried</div>
+     
+                        <input value="<%= customers[x].email %>" class="emailEdit input inputStyle inputEmail elmSmallMarginTop elmSmallMarginBottom" />
+                        <div class="emailError hidden error">Please enter a valid email address. Ex me@gmail.com</div>
+                            
+                        <input value="<%= customers[x].phoneNumber %>" class="phoneNumberEdit input inputStyle inputTel elmSmallMarginTop elmSmallMarginBottom" />
+                        <div class="telError hidden error">Please enter a 10 digit phone number with no letters or special characters</div>
+                            
+                        <a class="deleteCustomer buttonCaution cardContent elmSmallestMarginTop elmSmallestMarginBottom">Delete</a>
+                        <a class="editSubmit buttonPrimary cardContent elmSmallestMarginTop elmSmallestMarginBottom">Submit Edit</a>
+                    </div>
+                    <a class="customerEdit buttonNeutral cardContent elmSmallestMarginTop elmSmallestMarginBottom">Edit Customer</a>
+                </div>
+            </div>
+            <% } %> <!--End of loop-->
+        <% } else { %><!--End of if-->
+        <div>No customers found</div>
+        <a class="col-12 col-lg-6 offset-lg-3 buttonPrimary elmSmallMarginTop" id="newCustomerButton">New Customer</a>
+        <% } %>
+        <div class="col-12" id="newCustomerContainer">
+            <!--
+                If a new customer is added. The object will go here and when 
+                the page is refreshed the new object will be placed in the correct order
+            -->
+        </div>
+        <a class="col-12 col-lg-6 offset-lg-3 buttonPrimary elmSmallMarginTop contentCenter" id="newCustomerButton">New Customer</a>
+    </div>
+    
+    <div class="row no-gutters hidden" id="form">
+        <h2 class="col-12 title2 elmMarginTop">Create Customer</h2>
+
+        <div class="col-12 col-md-6 newCustomerInputContainer elmSmallestMarginTop">
+            <label for="firstName" class="label elmMarginSmallestTop text">First Name</label>
+            <input type="text" id="firstName" class="input inputStyle inputText elmPaddingTop" />
+            <div class="text hidden error textError" id="newFirstNameError">First name is requried</div>
+        </div>
+
+        <div class="col-12 col-md-6 newCustomerInputContainer elmSmallestMarginTop">
+            <label for="name" class="label elmMarginSmallestTop text">Last Name</label>
+            <input type="text" id="lastName" class="input inputStyle inputText elmPaddingTop" />
+            <div class="text hidden error textError" id="newLastNameError">Last name is requried</div>
+        </div>
+
+        <div class="col-12 col-md-6 newCustomerInputContainer elmSmallestMarginTop">
+            <label for="customerUserName" class="label elmMarginTop text">User Name</label>
+            <input type="text" id="customerUserName" name="customerUserName" class="input inputStyle inputText elmPaddingTop" />
+            <div class="text hidden error textError newUserNameError">User Name is requried</div>
+            <div class="text hidden error newUserNameError">User name is taken</div>
+        </div>
+
+        <div class="col-12 col-md-6 newCustomerInputContainer elmSmallestMarginTop">
+            <label for="email" class="label elmMarginTop text">E-mail</label>
+            <input type="email" id="email" name="email" class="input inputStyle inputEmail elmPaddingTop" />
+            <div class="text hidden error" id="newEmailError">Please enter a valid email address. Ex me@gmail.com</div>
+        </div>
+
+        <div class="col-12 col-md-6 newCustomerInputContainer elmSmallestMarginTop">
+            <label for="phoneNumber" class="label elmMarginTop text">Phone Number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" class="input inputStyle inputTel elmPaddingTop" />
+            <div class="text hidden error telError" id="newTelError">Please enter a 10 digit phone number with no letters or special characters</div>
+        </div>
+
+        
+        <label for="photo" class="col-12 label elmMarginTop">Profile Photo</label>
+        <a class="col-md-12 buttonNeutral" id="uploadLocal">
+            Select Image
+            <input id="profileImage" name="profileImage" class="hidden" type="file" accept="image/*" />
+        </a>
+
+        <div id="imgPreviewContainer" class="col-12 col-md-8 offset-md-2">
+            <canvas id="imgPreview"></canvas>
+            <div class="col-12">
+                <a class="buttonSecondary elmSmallestMarginTop elmSmallestMarginBottom" id="cancelProfileImage">Cancel Image</a>
+            </div>
+            <div id="cropControls" class="row"></div>
+        </div>
+        
+
+        
+        
+        <a class="col-12 buttonPrimary elmSmallMarginTop" id="createCustomerButton">Create</a>
+        <a class="col-12 buttonSecondary elmSmallMarginTop" id="cancelCreate">Cancel</a>
+    </div><!--End of Form-->
+
+<%- include("./includes/js/customersJS.ejs"); -%>
+<%- include("./includes/footer.ejs"); -%>

@@ -1,0 +1,144 @@
+<!--This needs to be redesigned-->
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/servicesCSS.ejs") -%>
+
+    <div class="row">
+        <div class="title1 col-12 elmSmallMarginTop elmSmallMarginBottom">Your Services</div>
+        
+            <% if(services.length !== 0) { %>
+                <% for(let x = 0; x < services.length; x++ ) { %>
+                    <div class="serviceContainer col-12 col-lg-4">
+                    <% if(x % 2 === 0) { %>
+                        <a class="serviceButton altButtons1 elmSmallestMarginTop service elmPaddingTop elmPaddingBottom textLarge">
+                            <%= allServices[x].serviceName %>
+                    <% } else { %>
+                        <a class="serviceButton altButtons2 elmSmallestMarginTop service elmPaddingTop elmPaddingBottom textLarge">
+                            <%= allServices[x].serviceName %>
+                    <% } %>
+                        </a>
+                        <div class="serviceContent cardBackground hidden">
+                            <div class="elmMarginTop">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-12">
+                                        <label class="label" for="serviceName<%=x%>">Service Name</label>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-12">
+                                        <input class="elmPaddingTop inputStyle input inputText serviceName" value="<%= services[x].serviceName %>" name="serviceName" id="serviceName<%=x%>" />
+                                        <div class="textError error hidden">Service Name is required</div>
+                                    </div>
+                                </div>
+                            </div><!-- End of Service Name -->           
+                            <div class="elmMarginTop">
+                                <div class="row">
+                                    <div class="col-12 col-md-6 col-lg-12">
+                                        <label class="col-12 label" for="currentCharge<%=x%>">Charge</label>
+                                    </div>
+                                    <div class="col-12 col-md-6 col-lg-12">
+                                        <input class="col-12 elmPaddingTop inputStyle input inputNumbers charge" value="<%= services[x].charge %>" name="charge" id="currentCharge<%=x%>" />
+                                        <div class="numberError error hidden">Please enter a charge in dollars</div>
+                                    </div>
+                                </div>
+                            </div> <!-- End of Charge -->
+                            <div class="elmMarginTop">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="label">Time Slots</label>
+                                    </div>
+                                    <div class="col-12 timeSlotsContainer">
+                                        <div class="row timeSlotsRow">
+                                            <% for(let y = 1; y <= services[x].timeSlots; y++) { %>
+                                                <div class="timeLabel text">Time Slot <%=y%></div>
+                                                <div class="col-12 col-md-6 col-lg-12 elmPaddingTop timeSlotContainer">
+                                                    <% if(services[x].slotType[y - 1] === true) { %>
+                                                        <select class="timeSelect input inputStyle">
+                                                            <option value="true" selected>Active</option>
+                                                            <option value="false">Passive</option>
+                                                        </select>
+                                                    <% } else { %>
+                                                        <select class="timeSelect input inputStyle">
+                                                            <option value="true">Active</option>
+                                                            <option value="false" selected>Passive</option>
+                                                        </select>
+                                                    <% } %>
+                                                </div>
+                                            <% } %>
+                                        </div><!-- End of time slots row -->
+                                    </div><!-- End of time slots container -->
+                                </div><!-- End of parent row of time slots container -->
+                                <% if(services[x].timeSlots <= 1) { %>
+                                    <a class="removeTimeSlot buttonSecondary elmSmallestMarginTop elmSmallestMarginBottom hidden">Remove Time Slot</a>
+                                <% } else { %>
+                                    <a class="removeTimeSlot buttonSecondary elmSmallestMarginTop elmSmallestMarginBottom">Remove Time Slot</a>
+                                <% } %>
+                                
+                                <% if(services[x].timeSlots >= 4) { %>
+                                    <a class="addTimeSlot buttonNeutral elmSmallestMarginTop elmSmallestMarginBottom hidden">Add Time Slot</a>
+                                <% } else { %>
+                                    <a class="addTimeSlot buttonNeutral elmSmallestMarginTop elmSmallestMarginBottom">Add Time Slot</a>
+                                <% } %>
+                                <a class="buttonCaution elmSmallestMarginTop elmSmallestMarginBottom deleteServiceButton">Delete Service</a>
+                                <a class="buttonPrimary elmSmallestMarginTop elmSmallestMarginBottom submitButtonServices">Commit Changes</a>
+                                <div class="serviceID hidden"><%= services[x]._id %></div>
+                            </div> <!-- End of Time Slots -->
+                        </div><!-- End of Service Content --> 
+                    </div>
+                <% } %>   
+            <% } else { %>
+                <div class="text">You have no services</div>
+            <% } %>
+            <!--This is where a new service will be appended when the add service button is clicked-->
+            <div id="serviceSection">
+
+            </div>
+
+        <div class="row hidden elmMarginTop elmMarginTop" id="newServiceContainer">
+            <div class="title2 col-12 elmSmallestMarginBottom">New Service</div>
+            <div class="col-12 col-md-6 col-lg-4" id="newServiceNameContainer">
+                <label class="label elmSmallMarginTop">Service Name</label>
+                <input class="elmPaddingTop input inputStyle" id="newServiceName"/>
+                <div class="text hidden error textError">Service name is required please add a name</div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4" id="newChargeContainer">
+                <label class="col-12 label elmSmallMarginTop">Charge</label>
+                <input class="col-12 elmPaddingTop input inputStyle" id="newCharge"/>
+                <div class="text hidden error numberError">Charge is required</div>
+            </div>
+            <div id="newTimeSlotContianer" class="row">
+                <label class="label col-12 elmMarginTop">Time Slots</label>
+                <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop slotContainer">
+                    <div class="newTimeLabel">Time Slot 1</div>
+                    <select class="newTimeSelect input inputStyle">
+                        <option value="true" selected>Active</option>
+                        <option value="false">Passive</option>
+                    </select>
+                </div>
+            </div>
+
+            
+                <div class="timeSlotButtonContainer col-12 col-lg-6 offset-lg-3">
+                    <a id="removeNewTimeSlot" class="buttonSecondary hidden elmSmallMarginTop contentCenter">Remove Time Slot</a>
+                </div>
+                <div class="timeSlotButtonContainer col-12 col-lg-6 offset-lg-3">
+                    <a id="addNewTimeSlot" class="buttonNeutral elmSmallestMarginBottom elmSmallestMarginTop contentCenter">Add Time Slot</a>
+                </div>
+                <div class="timeSlotButtonContainer col-12 col-lg-6 offset-lg-3">
+                    <a id="submitNewService" class="buttonPrimary elmSmallestMarginTop elmSmallMarginBottom contentCenter">Submit New</a>
+                </div>
+            
+
+        </div>
+
+        
+        <div class="buttonContainer col-12">
+            <a class="buttonNeutral elmSmallMarginTop contentCenter" id="addService">Add Service</a>
+            <!--Note that this button will read "Cancel when the new service option is open"-->
+        </div>
+    </div>
+
+
+<footer>
+    
+</footer>
+<%- include("./includes/js/servicesJS.ejs"); -%>
+<%- include("./includes/footer.ejs"); -%>
+

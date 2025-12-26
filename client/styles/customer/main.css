@@ -1,0 +1,132 @@
+.iconImage{
+    width : 80px;
+    height : 80px;
+    display : block;
+    margin-left : auto;
+    margin-right : auto;
+    border-radius : 5px;
+}
+
+.centerText{
+    text-align: center;
+}
+
+
+.savedContainer{
+    z-index: 3;
+}
+
+.savedDetailsContainer{
+    width : 100%;
+    z-index: -1;
+}
+
+.templateMakeAppointmentContainer{
+    height : 300px;
+    overflow-y: scroll;
+    width:100%;
+}
+
+.templateTimeContainer{
+    margin : 0;
+}
+
+.templateAppointmentButton{
+    text-align: center;
+}
+
+.time{
+    text-align: center;
+    padding-top : 9%;
+    padding-bottom : 9%;
+}
+
+.timeContainer{
+    padding:0 !important;
+    padding-right : 2% !important;
+    padding-left : 2% !important;
+}
+
+#nameSearchLabelContainer,
+#searchInputContainer,
+#perferedStylistContainer > div,
+#stylistFilterContainer,
+#savedStylistContainer > div,
+#savedStylistContainer > h2 {
+    padding : 0;
+}
+
+
+.upcomingData{
+    text-align: left;
+}
+
+.altButtons1, .altButtons2{
+    padding-top : 2.5%;
+    padding-bottom : 2.5%;
+}
+
+
+.cardBackground > *{
+    height : inherit;
+}
+
+h1, h2, h3{
+    margin-left : 0;
+    margin-bottom : 0;
+    padding-left : 0 !important;
+}
+
+
+#search{
+    width : 100%;
+}
+
+select {
+    width : 100%;
+}
+
+select:focus{
+    transition: ease-in-out;
+    transition-duration: .2s;
+    border-bottom-color : rgb(125, 65,254);
+}
+
+
+#appointmentsNotes{
+    width : 100%;
+    height : 75px;
+    border : none;
+    padding : 5%;
+}
+
+#appointmentsNotes:focus-visible{
+    outline : none;
+    transition : ease-in-out;
+    animation-name: fadeIn;
+    animation-duration: .5;
+    animation-fill-mode: forwards;
+    transition-duration : .5s;
+    border : 1px solid rgb(125, 65,254);
+    border-radius: 10px;
+}
+
+#timesContainer{
+    height : 500px;
+    overflow-y: scroll;
+}
+
+.servicePic{
+    width : 50%;
+    margin-left : 25%;
+    margin-right : 25%;
+}
+
+
+@media (min-width : 500px){
+
+}
+
+@media (min-width : 1000px){
+    
+}

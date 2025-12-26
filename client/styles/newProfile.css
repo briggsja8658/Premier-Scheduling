@@ -1,0 +1,19 @@
+#submit{
+    text-align: center;
+}
+
+#sytlistCheckBox{
+    height: 15px;
+    width: 15px;
+}
+
+#uploadLocal{
+    width : 90%;
+}
+
+@media screen and (min-width : 1000px){
+    #stylistProfile{
+        width : 25px;
+        height : 25px;
+    }
+}

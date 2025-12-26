@@ -1,0 +1,58 @@
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/loginCSS.ejs"); -%>
+
+
+    <div class="row">
+
+        <h1 class="title1 col-12">Log In</h1>
+        <div id="userNameContainer" class="elmSmallMarginTop col-12 col-md-6">
+            <div id="userNameLabel">
+                <label for="userName" class="label">User Name / Email</label>
+            </div>
+            <div id="userNameInput">
+                <input type="text" id="userName" class="input inputStyle elmPaddingTop" />
+                <div class="text hidden error" id="userNameError">Username is required</div>
+            </div><!-- End of userNameInput -->
+        </div><!-- End of userNameContainer -->
+
+        <div id="passwordContainer" class="elmSmallMarginTop col-12 col-md-6">
+            <div id="passwordLabel">
+                <label for="password" class="label">Password</label>
+            </div>
+            <div id="passwordInput">
+                <input type="password" id="password" class="input inputStyle inputPassword elmPaddingTop" />
+            </div><!-- End of passwordInput -->
+        </div><!-- End of passwordContainer -->
+        <div class="text hidden error" id="logInError">Log in failed. User Name and Password combination is incorrect</div>
+
+        <div id="submitButtonContainer" class="col-12 elmSmallMarginTop">
+            <div id="loginButton" class="buttonPrimary">Log In</div>
+        </div>
+
+        <div id="passwordSetContainer" class="elmSmallMarginTop col-12 hidden">
+            <div class=" col-12 col-md-6">
+                <h1 class="title1">Set Password</h1>
+            </div>
+            <div class=" col-12 col-md-6 elmMarginTop">
+                <label for="passwordSetInput" class="label">Password</label>
+            </div>
+            <div class=" col-12 col-md-6 col-md-4">
+                <input type="password" id="passwordSetInput" class="input inputStyle inputPassword elmPaddingTop" />
+            </div>
+
+            <div class=" col-12 col-md-6 elmMarginTop">
+                <label for="passwordSetMatch" class="label">Password Match</label>
+            </div>
+            <div class=" col-12 col-md-6 col-md-4">
+                <input type="password" id="passwordSetMatch" class="input inputStyle inputPassword elmPaddingTop" />
+                <div class="text hidden" id="passwordMatchError">Passwords do not match</div>
+            </div>
+            <div class="col-12 col-md-10 offset-md-1">
+                <a class="buttonPrimary" id="passwordSet">Set Password</a>
+            </div>
+        </div><!-- End of userNameInput -->
+    </div><!-- End of userNameContainer -->
+
+
+<%- include("./includes/js/loginJS.ejs"); -%>
+<%- include("./includes/footerBlank.ejs"); -%>

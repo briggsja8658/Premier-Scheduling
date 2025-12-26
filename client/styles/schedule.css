@@ -1,0 +1,70 @@
+.hiddenError{
+    display: none;
+}
+
+.customerImage{
+    width:80px;
+    border-radius: 10px;
+}
+
+.serviceSelection,
+#showSlotsButton,
+#submitAppointmentButton{
+    text-align: center;
+}
+
+.serviceTimeSelection{
+    text-align: center;
+    width:90%;
+    margin: left right 5%;
+}
+
+.customersContainer{
+    width:100%;
+}
+
+.customerSelection{
+    width:90%;
+    padding-left : 3%;
+    padding-right : 3%;
+    margin-left : 5%;
+    margin-right : 5%;
+    display: block;
+}
+
+.serviceSelection{
+    font-size: inherit;
+}
+
+.customerContentContainer > div > div {
+    padding-left:3%;
+}
+
+.servicesContainer{
+    width:100%;
+}
+
+.serviceSelection{
+    width : 90%;
+    margin-left : 5%;
+    margin-right : 5%;
+    display: block;
+}
+
+.time{
+    text-align: center;
+    padding-top : 9%;
+    padding-bottom : 9%;
+    margin-left : 2.5%;
+    margin-right : 2.5%;
+    width : 95%;
+}
+
+@media screen and (min-width:500px){
+    
+}
+
+
+@media screen and (min-width:1000px){
+}
+

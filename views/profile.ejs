@@ -1,0 +1,142 @@
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/profileCSS.ejs"); -%>
+
+
+    <div class="row no-gutters" id="mainProfileDiv">
+        <h1 class="col-12 title1">Edit Your Profile</h1>
+        <div id="generalEditContainer" class="col-12">
+            <div id="generalInfoButton" class="title2 elmMarginTop elmSmallestMarginBottom">General Information</div>
+            <div id="generalEdit">
+                <div id="stylistID" class="hidden"><%= stylist._id %></div>
+                <div class="row no-gutters">
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="elmSmallestMarginTop">
+                            <label class="label" for="firstName">First Name</label>
+                        </div>
+                        <input id="firstName" class="elmPaddingTop input inputStyle inputText" value="<%= stylist.firstName %>" />
+                        <div id="firstNameError" class="hidden error textError">First Name is required</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="elmSmallestMarginTop">
+                            <label class="label" for="lastName">Last Name</label>
+                        </div>
+                        <input id="lastName" class="elmPaddingTop inputp inputStyle inputText" value="<%= stylist.lastName %>" />
+                        <div id="lastNameError" class="hidden error textError">Last Name is required</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="elmSmallestMarginTop">
+                            <label class="label" for="phoneNumber">Phone Number</label>
+                        </div>
+                        <input id="phoneNumber" class="elmPaddingTop input inputStyle inputTel"
+                            value="<%= stylist.phoneNumber %>" id="phoneNumber" />
+                        <div id="telError" class="hidden error telError">Please enter a 10 digit phone number with no special characters</div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="elmSmallestMarginTop">
+                            <label class="label" for="email">E-mail</label>
+                        </div>
+                        <input id="email" class="elmPaddingTop input inputStyle inputEmail"
+                            value="<%= stylist.email %>" id="email" />
+                        <div id="emailError" class="hidden error emailError">please enter a valid email. Ex me@gmail.com</div>
+                    </div>
+                    <div class="col-12">
+                        <div class="elmMarginTop">
+                            <label for="photo" class="label">Profile Photo</label>
+                        </div>
+        
+                        <div id="orginalProfileImage">
+                            <div class="text">Orginal</div>
+                            <img id="oldImage" src="<%= stylist.profileImage %>" />
+                        </div>
+        
+                        <a class="buttonNeutral" id="uploadLocal">
+                            Select Image
+                            <input id="profileImage" name="profileImage" class="hidden" type="file" accept="image/*" />
+                        </a>
+        
+                        <div id="imgPreviewContainer" class="hidden">
+                            <canvas id="imgPreview" class="contentCenter elmSmallMarginTop"></canvas>
+                            <div>
+                                <a class="buttonSecondary elmSmallestMarginTop elmSmallestMarginBottom"
+                                    id="cancelProfileImage">Cancel Image
+                                </a>
+                            </div>
+                        </div>
+        
+        
+                        <div id="cropControls" class="row"></div>
+                    </div>
+                </div>
+
+                <a class="buttonPrimary elmSmallMarginTop" id="editProfileSubmit">Submit General Edit</a>
+                
+            </div><!-- End of General Edit Form -->
+
+            <div id="workingHoursContainer" class="col-12">
+
+            </div>
+
+
+        </div><!-- End of General Edit Container -->
+        <div id="timeOffContainer" class="elmMarginTop">
+            <h2 class="title2">Take Time Off</h2>
+            <div id="timeOffError1" class="error hidden">End time must be after start time</div>
+            <div id="timeOffError2" class="error hidden">Times can not be the same</div>
+            <div id="startTimeOffContainer" class="col-12 elmSmallestMarginTop">
+                <div id="startTimeOffLabelContainer">
+                    <label id="startTimeOffLabel">
+                        Start Time
+                    </label>
+                </div>
+                <div id="startTimeOffSelectContainer">
+                    <select id="startTimeOffSelect">
+                        <!-- Filled in with JavaScript profile.js function fillTimeSelect()-->
+                    </select>
+                </div>
+            </div>
+
+
+            <div id="endTimeOffContainer" class="col-12 elmSmallestMarginTop">
+                <div id="endTimeOffLabelContainer">
+                    <label id="endTimeOffLabel">
+                        End Time
+                    </label>
+                </div>
+                <div id="endTimeOffSelectContainer">
+                    <select id="endTimeOffSelect">
+                        <!-- Filled in with JavaScript profile.js function fillTimeSelect()-->
+                    </select>
+                </div>
+            </div>
+
+            <div class="buttonPrimary col-12 elmSmallMarginTop" id="submitTimeOff">Submit Time Off</div>
+        
+        
+        
+            <div id="activeTimeOffContainer">
+                <h3 class="title3">Upcoming Time Off</h3>
+                <% if(timeTaken.length !== 0){ %>
+                    <% for(let x = 0; x < timeTaken.length; x++) { %>
+                        <% if(x % 2 === 0){ %>
+                        <div class="altButtons2 activeTimeOff elmSmallestMarginTop">
+                        <% } else { %>
+                        <div class="altButtons1 activeTimeOff elmSmallestMarginTop">
+                        <% } %>
+                            <%= timeTaken[x].stringTime %>
+                        </div>
+                        <div class="timeOffBackground cardBackground">
+                            <div class="timeOffDelete buttonCaution">Delete</div>
+                            <div class="hidden timeOffID"><%= timeTaken[x]._id %></div>
+                        </div>
+                    <% } %>
+                <% } else { %>
+                    <div> Nothing upcoming </div>
+                <% } %>
+            </div>
+            
+        </div>
+    </div><!-- End of div row -->
+
+    
+    <%- include("./includes/js/profileJS.ejs"); -%>
+    <%- include("./includes/footer.ejs"); -%>

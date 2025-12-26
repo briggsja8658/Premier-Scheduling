@@ -1,0 +1,21 @@
+
+
+/* General Alert Styles */
+#primaryAlertContainer{
+    
+}
+#primaryAlertContent,
+#secondaryAlertContent{
+    background-color: white;
+    width : 90%;
+    margin-left : 5%;
+    margin-right : 5%;
+    padding : 5%;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#confirmPrimaryAlert,
+#cancelPrimaryAlert{
+    text-align: center;
+}

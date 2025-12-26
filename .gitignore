@@ -1,0 +1,6 @@
+client/images/*
+node_modules/*
+logFile.txt
+server.cert
+server.key
+tsconfig.json

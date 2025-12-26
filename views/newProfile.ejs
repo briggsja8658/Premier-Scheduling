@@ -1,0 +1,172 @@
+<%- include("./includes/header.ejs"); -%>
+<%- include("./includes/css/newProfileCSS.ejs"); -%>
+
+        <div class="row">
+            <div class="col-12">
+                <h1 class="title1">Make A Profile</h1>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="firstNameContainer">
+                <div id="firstNameLabelContainer">
+                    <label for="name" class="label">First Name</label>
+                </div>
+                <div id="firstNameInputContainer">
+                    <input type="text" id="firstName" class="input inputStyle inputText elmPaddingTop" />
+                    <div class="text hidden error textError">Your First Name is requried</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="lastNameContainer">
+                <div id="lastNameLabelContainer">
+                    <label for="name" class="label">Last Name</label>
+                </div>
+                <div id="lastNameInputContainer">
+                    <input type="text" id="lastName" class="input inputStyle inputText elmPaddingTop" />
+                    <div class="text hidden error textError">Your Last Name is requried</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="userNameContainer">
+                <div id="userNameLabelContainer">
+                    <label for="userName" class="label">User Name</label>
+                </div>
+                <div id="userNameInputContainer">
+                    <input type="text" id="userName" class="input inputStyle inputUserName elmPaddingTop" />
+                    <div class="text hidden error userNameError">User Name taken</div>
+                    <div class="text hidden error userNameError">A User Name is requried</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="emailContainer">
+                <div id="emailLabelContainer">
+                    <label for="email" class="label">E-mail</label>
+                </div>
+                <div id="emailInputContainer">
+                    <input type="email" id="email" class="input inputStyle inputEmail elmPaddingTop" />
+                    <div class="text hidden error emailError">Please enter a valid email address. Ex me@gmail.com</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="passwordContainer">
+                <div id="passwordLabelContainer">
+                    <label for="password" class="label">Password</label>
+                </div>
+                <div id="passwordInputContainer">
+                    <input type="password" id="password" class="input inputStyle inputPassword elmPaddingTop" />
+                    <div class="text hidden error passwordError">Please enter a password</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="passwordMatchContainer">
+                <div id="passwordMatchLabelContainer">
+                    <label for="passwordMatch" class="label">Password Match</label>
+                </div>
+                <div id="passwordMatchInputContainer">
+                    <input type="password" id="passwordMatch" class="inputStyle elmPaddingTop" />
+                    <div class="text hidden error" id="passwordMatchError">Please enter the same password as above</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4 elmSmallMarginTop" id="phoneNumberContainer">
+                <div id="phoneNumberLabelContainer">
+                    <label for="phoneNumber" class="label">Phone Number</label>
+                </div>
+                <div id="phoneNumberInputContainer">
+                    <input type="tel" id="phoneNumber" class="input inputStyle inputTel elmPaddingTop" />
+                    <div class="text hidden error telError">Please enter a 10 digit phone number with no letters or
+                        special characters</div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-10 offset-md-1 elmSmallMarginTop" id="profilePhotoContainer">
+                <label for="photo" class="label elmMarginTop">Profile Photo</label>
+                <a class="col-md-12 buttonNeutral" id="uploadLocal">
+                    Select Image
+                    <input id="profileImage" class="hidden" type="file" accept="image/*" />
+                </a>
+
+                <div id="imgPreviewContainer">
+                    <canvas id="imgPreview" class="elmSmallMarginTop"></canvas>
+                    <div class="col-12">
+                        <a class="buttonSecondary elmSmallestMarginTop elmSmallestMarginBottom"
+                            id="cancelProfileImage">Cancel Image</a>
+                    </div>
+                </div>
+
+
+                <div id="cropControls" class="row"></div>
+            </div>
+
+            <div class="col-12 col-md-10 offset-md-1 elmSmallMarginTop" id="profileTypeContainer">
+                <div id="profileTypeLabelContainer">
+                    <label for="profileType" class="label">Are you a Stylist?</label>
+                </div>
+                <div id="profileTypeInputContainer" class="elmSmallestMarginTop">
+                    <div class="textLarge">
+                        Yes!
+                        <input type="checkbox" id="stylistProfile" />
+                    </div>
+
+                    <div class="hidden row" id="workAddressContainer">
+                        <h2 class="textLarge col-12">Where do you work?</h2>
+                        <div id="businessNameContainer" class="col-12 col-md-6 col-lg-4">
+                            <div id="businessNameLabelContainer">
+                                <label id="businessNameLabel" for="businessNameInput" class="label">Business Name</label>
+                            </div>
+                            <div id="businessNameInputContainer">
+                                <input type="text" class="businessInput inputStyle" id="businessNameInput" />
+                                <div class="text hidden businessError">Business name is required</div>
+                            </div>
+                        </div>
+                        <div id="streetAddressContainer" class="col-12 col-md-6 col-lg-4">
+                            <div id="streetAddressLabelContainer">
+                                <label id="streetAddressLabel" for="streetAddressInput" class="label">Street Address</label>
+                            </div>
+                            <div id="streetAddressInputContainer">
+                                <input type="text" class="businessInput businessInput inputStyle" id="streetAddressInput" />
+                                <div class="text hidden businessError">Street address is required</div>
+                            </div>
+                        </div>
+                        <div id="cityContainer" class="col-12 col-md-6 col-lg-4">
+                            <div id="cityLabelContainer">
+                                <label id="cityLabel" for="cityInput" class="label">City</label>
+                            </div>
+                            <div id="cityInputContainer">
+                                <input id="cityInput" type="text" class="businessInput inputStyle" />
+                                <div class="text hidden businessError">City name is required</div>
+                            </div>
+                        </div>
+                        <div id="stateContainer" class="col-12 col-md-6 col-lg-4">
+                            <div id="stateLabelContainer">
+                                <label id="stateLabel" for="stateInput" class="label">State</label>
+                            </div>
+                            <div id="stateInputContainer">
+                                <input id="stateInput" type="text" class="businessInput inputStyle" />
+                                <div class="text hidden businessError">State name is required</div>
+                            </div>
+                        </div>
+                        <div id="zipCodeContainer" class="col-12 col-md-6 col-lg-4">
+                            <div id="zipCodeLabelContainer">
+                                <label id="zipCodeLabel" for="zipCodeInput" class="label">Zip Code</label>
+                            </div>
+                            <div id="zipCodeInputContainer">
+                                <input id="zipCodeInput" type="text" class="businessInput inputStyle" />
+                                <div class="text hidden businessError">Zip code is required</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="elmSmallMarginTop buttonContainer col-12 col-md-10 offset-md-1">
+                        <a class="buttonPrimary elmSmallMarginTop" id="submit">Create Profile</a>
+                    </div>
+                </div>
+
+<%- include("./includes/js/newProfileJS.ejs"); -%>
+<%- include("./includes/footerBlank.ejs"); -%>

@@ -1,0 +1,9 @@
+.row .no-gutters{
+    padding-left : 2%;
+    padding-right : 2%;
+}
+.row .no-gutters > div > img{
+    border-radius: 10px;
+}
+
+

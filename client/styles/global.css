@@ -1,0 +1,894 @@
+/*Global Styles*/
+@-ms-viewport{
+    width:device-width;
+}
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 5vw;
+}
+
+body{
+    margin: 0;
+}
+
+#background{
+    background: linear-gradient(138.6deg, #45CDF4 1.65%,
+         rgba(159, 223, 242, 0.85) 13.44%, 
+         rgba(255, 255, 255, 0.85) 51.85%, 
+         rgba(159, 223, 242, 0.85) 87.71%, 
+         #45CDF4 100%);
+}
+
+.elmLargeMarginTop{
+    margin-top : 30%;
+}
+.elmLargeMarginBottom{
+    margin-bottom : 30%;
+}
+
+.elmMarginTop{
+    margin-top : 20%;
+}
+.elmMarginBottom{
+    margin-top : 20%;
+}
+
+.elmSmallMarginTop{
+    margin-top : 10%;
+}
+.elmSmallMarginBottom{
+    margin-bottom : 10%;
+}
+
+.elmSmallestMarginTop{
+    margin-top : 5%;
+}
+.elmSmallestMarginBottom{
+    margin-bottom : 5%;
+}
+
+
+.elmPaddingLargeTop{
+    padding-top : 10%;
+}
+.elmPaddingLargeBottom{
+    padding-top : 10%;
+}
+
+.elmPaddingTop{
+    padding-top : 5%;
+}
+.elmPaddingBottom{
+    padding-top : 5%;
+}
+
+.elmPaddingAll{
+    padding : 5%;
+}
+
+.cardBackground{
+    background-color: #ffffff;
+    position: relative;
+    bottom : 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding:3%;
+    z-index: -1;
+}
+
+.cardContent{
+    position : relative;
+    animation-name : fadeIn;
+    animation-duration : 1s;
+}
+
+
+
+img{
+    max-width: 100%;
+}
+
+select{
+    border : none;
+    border-bottom : solid;
+    border-bottom-color : black;
+    background-color : transparent;
+    font-size : 5vw;
+}
+
+
+/* Font Styles */
+.title1 {
+    font-size:8.5vw;
+}
+
+.title2 {
+    font-size:7.5vw;
+}
+
+.title3 {
+    font-size:6.5vw;
+}
+
+.textLarge{
+    font-size : 6vw;
+}
+
+.text{
+    font-size:4vw;
+}
+
+.textSmall{
+    font-size : 3vw;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.hiddenTitle{
+    display: none;
+}
+
+
+/* Notification Rules */
+#alertContainer{
+    background-color : rgba(125, 65, 254, .9);
+    box-shadow : 4px 8px 8px 0px rgba(0,0,0, .25);
+    padding : 3%;
+    padding-left : 6%;
+    padding-right : 6%;
+    position : fixed;
+    top : 10%;
+    left : 100%;
+    width : 0;
+    z-index : 10;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#alertText {
+    color : white;
+}
+
+
+
+
+/* Button and Card Styles */
+button{
+    padding:none;
+    border:none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: left;
+    width:100%;
+}
+
+a{
+    padding:none;
+    border:none;
+    text-decoration: none;
+    display: inline-block;
+    text-align: left;
+    width:100%;
+}
+
+.buttonPrimary {
+    background-color:#0AE87D;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    font-size:5vw;
+    color:black;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+}
+
+.buttonSecondary {  
+    background-color:#5f5e5e;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    color:rgb(236, 236, 236);
+    font-size:5vw;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+}
+
+.buttonAccent {
+    background-color:rgba(125, 65, 254, .9);
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    color:rgb(236, 236, 236);
+    font-size:5vw;
+}
+
+.buttonNeutral {
+    background-color:#E5E5E5;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    font-size:5vw;
+    color:black;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+}
+
+.altButtons1 {
+    background-color:#68ACFC;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    font-size:5vw;
+    color:black;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+
+}
+
+.altButtons2 {
+    background-color:#69EED6;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    font-size:5vw;
+    color:black;
+    box-shadow: 2px 4px 4px 0px rgba(0,0,0, .25);
+}
+
+.buttonCaution {
+    background-color:#da0b04;
+    border-radius: 10px;
+    padding-top:5%;
+    padding-bottom:5%;
+    font-size:5vw;
+    color:rgb(255, 255, 255);
+}
+
+.buttonCautionSmall{
+    background-color:#da0b04;
+    border-radius: 50%;
+    padding:1%;
+    padding-left:2%;
+    padding-right:2%;
+    font-size:5vw;
+    color:rgb(255, 255, 255);
+}
+
+.buttonContainer{
+    margin-bottom: 10%;
+}
+
+.selected{
+    background-color:#0AE87D !important;
+}
+
+
+
+
+
+/* Form and Input Styles */
+.inputStyle,
+div > .inputStyle{
+    background:none;
+    border:none;
+    border-bottom:solid;
+    width:100%;
+    font-size:5vw;
+    padding-left:0;
+    padding-right:0;
+}
+
+.inputStyle:focus-visible{
+    outline : none;
+    transition : ease-in-out;
+    transition-duration: .2s;
+    border-bottom : 2px solid rgb(125, 65,254);
+}
+
+div > .label{
+    font-size:6vw;
+    padding-left : 0;
+    padding-right : 0;
+}
+
+.error, .businessError{
+    margin-top : 5%;
+    background-color : rgba(255, 255, 255, .6);
+    padding:5%;
+    border-radius: 10px;
+    background-color:rgba(255,255,255,.85);
+    border-left:solid;
+    border-left-color:red;
+    border-left-width:3px;
+    width:100%;
+}
+
+
+/* Menu Styles */
+#iconSelections > a{
+    display: inline;
+    margin-left: 8%;
+}
+
+.icon{
+    width:20%;
+}
+
+#headerName{
+    font-size:6vw;
+}
+
+#menu{
+    background:rgba(255, 255, 255, .95);
+    width:70%;
+    margin-left:30%;
+    padding:2%;
+    padding-right:5%;
+    padding-left:5%;
+    z-index: 2;
+    position: absolute;
+    animation : fadeIn ease-in;
+    animation-duration : .5s;
+    border-radius: 10px 0 0 10px;
+    border-left: solid;
+    border-width: 3px;
+    border-color: rgb(125, 65, 254);
+}
+
+#menu > a{
+    text-decoration: none;
+    color:black;
+}
+
+#menu > a:hover{
+    background-color:rgb(125, 65, 254);
+    border-radius: 10px;
+    transition: ease-in-out;
+    transition-duration: .2s;
+}
+
+#closeMenu{
+    font-size: 8vw;
+    border:solid;
+    border-color:rgb(255,150,150);
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 30%;
+    height: 6.5%;
+    width:25%;
+}
+
+.menuIcon{
+    width:15%;
+}
+
+.menuLinkContainer{
+    text-align: left;
+    padding : 3%;
+    padding-left : 5%;
+}
+
+.menuLinkText{
+    padding-left:5%;
+}
+
+#nav{
+    background-color: rgba(125, 65, 254, .9);
+    border-radius: 10px 10px 0px 0px;
+    padding-top:2.5%;
+    padding-bottom:2.5%;
+    animation : fadeIn ease-in;
+    animation-duration : .5s;
+    z-index: 100;
+    position:fixed;
+}
+
+#headerName{
+    color : rgb(230, 230, 230);
+    position:inherit;
+}
+
+.iconImage{
+    width : 80px;
+    height : 80px;
+    position : inherit;
+}
+
+
+
+
+  
+  
+
+
+@media (min-width:500px){
+    .title1 {
+        font-size:5vw;
+    }
+    
+    .title2 {
+        font-size:4vw;
+    }
+    
+    .title3 {
+        font-size:3vw;
+    }
+    .text{
+        font-size:3vw;
+    }
+
+    .textLarge{
+        font-size : 2.5vw;
+    }
+    
+    .textSmall{
+        font-size : 1.5vw;
+    }
+
+    .elmLargeMarginTop{
+        margin-top:15%;
+    }
+
+    .elmLargeMarginBottom{
+        margin-bottom:15%;
+    }
+
+    .elmMarginTop{
+        margin-top:10%;
+    }
+
+    .elmMarginBottom{
+        margin-bottom:10%;
+    }
+    
+    .elmSmallMarginTop{
+        margin-top : 5%;
+    }
+    .elmSmallMarginBottom{
+        margin-bottom : 5%;
+    }
+    
+    .elmSmallestMarginTop{
+        margin-top : 2.5%;
+    }
+    .elmSmallestMarginBottom{
+        margin-bottom : 2.5%;
+    }
+    
+    
+    .elmPaddingLargeTop{
+        padding-top : 5%;
+    }
+    .elmPaddingLargeBottom{
+        padding-top : 5%;
+    }
+    
+    .elmPaddingTop{
+        padding-top : 2.5%;
+    }
+    .elmPaddingBottom{
+        padding-top : 2.5%;
+    }
+    
+    .elmPaddingAll{
+        padding : 2.5%;
+    }
+
+    select{
+        font-size : 3vw;
+    }
+
+
+    /* Button and Card Styles */
+    .buttonPrimary {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .buttonSecondary {  
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .buttonAccent {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .buttonNeutral {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .altButtons1 {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .altButtons2 {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .buttonCaution {
+        border-radius: 10px;
+        padding-top:5%;
+        padding-bottom:5%;
+        font-size:3vw;
+        width : 90%;
+        margin-left : 5%;
+        margin-right : 5%;
+    }
+    
+    .buttonCautionSmall{
+        border-radius: 50%;
+        padding:1%;
+        padding-left:1%;
+        padding-right:1%;
+        font-size:3vw;
+    }
+
+
+
+
+
+    /* Form and Input Styles */
+    div > .inputStyle{
+        width:100%;
+        font-size:3vw;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    div > .label{
+        font-size:4vw;
+        padding-left : 0;
+        padding-right : 0;
+    }
+
+    .error, .businessError{
+        margin-top:5%;
+        padding:5%;
+        border-radius: 10px;
+        border-left-width:3px;
+        width:100%;
+    }
+
+
+    /* Menu Styles */
+    #iconSelections > a{
+        margin-left: 8%;
+    }
+
+    .icon{
+        width:15%;
+    }
+
+    #headerName{
+        font-size:3vw;
+    }
+
+    #menu{
+        width:50%;
+        margin-left:50%;
+        padding:2%;
+        padding-right:5%;
+        padding-left:5%;
+        border-radius: 10px 0 0 10px;
+        border-width: 6px;
+    }
+
+    .menuIcon{
+        width:15%;
+    }
+
+    #nav{
+        border-radius: 10px 10px 0px 0px;
+        padding-top:2.5%;
+        padding-bottom:2.5%;
+    }
+
+    .cardBackground{
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+
+    /* Notification Rules */
+    #alertContainer{
+        padding : 2%;
+        padding-left : 4%;
+        padding-right : 4%;
+    }
+    #alertText {
+        font-size: 2vw;
+    }
+}
+
+@media (min-width:1000px){
+    .title1 {
+        font-size:2.5vw;
+    }
+    
+    .title2 {
+        font-size:2vw;
+    }
+    
+    .title3 {
+        font-size:1.5vw;
+    }
+    .text{
+        font-size:1.3vw;
+    }
+
+    .textLarge{
+        font-size : 1.8vw;
+    }
+    
+    .textSmall{
+        font-size : 1.1vw;
+    }
+
+    .elmLargeMarginTop{
+        margin-top:10%;
+    }
+
+    .elmLargeMarginBottom{
+        margin-bottom:10%;
+    }
+
+    .elmMarginTop{
+        margin-top:6%;
+    }
+
+    .elmMarginBottom{
+        margin-bottom:6%;
+    }
+    
+    .elmSmallMarginTop{
+        margin-top : 4%;
+    }
+    .elmSmallMarginBottom{
+        margin-bottom : 4%;
+    }
+    
+    .elmSmallestMarginTop{
+        margin-top : 2%;
+    }
+    .elmSmallestMarginBottom{
+        margin-bottom : 2%;
+    }
+
+    .elmPaddingLargeTop{
+        padding-top : 5%;
+    }
+    .elmPaddingLargeBottom{
+        padding-top : 5%;
+    }
+    
+    .elmPaddingTop{
+        padding-top : 1%;
+    }
+    .elmPaddingBottom{
+        padding-top : 1%;
+    }
+    
+    .elmPaddingAll{
+        padding : 1%;
+    }
+
+    select{
+        font-size : 3vw;
+    }
+
+
+    /* Button and Card Styles */
+    .buttonPrimary {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        text-align: center;
+        color:black;
+        font-size: 1.8vw;
+    }
+
+    .buttonSecondary {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        color:rgb(236, 236, 236);
+        font-size: 1.8vw;
+    }
+
+    .buttonAccent {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        font-size: 1.8vw;
+    }
+
+    .buttonNeutral {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        font-size: 1.8vw;
+    }
+
+    .altButtons1 {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        font-size: 1.8vw;
+    }
+
+    .altButtons2 {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        font-size: 1.8vw;
+    }
+
+    .buttonCaution {
+        border-radius: 10px;
+        padding-top : 2.5%;
+        padding-bottom : 2.5%;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+        font-size: 1.8vw;
+    }
+
+    .buttonCautionSmall{
+        border-radius: 50%;
+        padding:1%;
+        padding-left:2%;
+        padding-right:2%;
+        font-size: 1.5vw;
+    }
+
+    .buttonContainer{
+        margin-bottom: 10%;
+    }
+
+
+
+
+
+    /* Form and Input Styles */
+    div > .inputStyle{
+        width:100%;
+        font-size: 1.5vw;
+        padding-left:0;
+        padding-right:0;
+    }
+
+    div > .label{
+        font-size: 1.8vw;
+        padding-left : 0;
+        padding-right : 0;
+    }
+
+    .error, .businessError{
+        margin-top:2%;
+        padding:2%;
+        border-radius: 10px;
+        border-left-width:3px;
+        width:100%;
+    }
+
+
+    /* Menu Styles */
+    #iconSelections > a{
+        margin-left: 8%;
+    }
+
+    .icon{
+        width:8%;
+    }
+
+    #headerName{
+        font-size:2vw;
+    }
+
+    #menu{
+        width:30%;
+        margin-left:70%;
+        padding:2%;
+        padding-right:5%;
+        padding-left:5%;
+        border-radius: 10px 0 0 10px;
+        border-width: 6px;
+    }
+
+    #closeMenu{
+        font-size: 4vw;
+        border-radius: 30%;
+        height: 6.5%;
+    }
+
+    .menuIcon{
+        width:15%;
+    }
+
+    #nav{
+        border-radius: 10px 10px 0px 0px;
+        padding-top:1%;
+        padding-bottom:1%;
+    }
+
+    #nav > div {
+        height : 50px;
+    }
+
+    #iconSelections{
+        margin-top : -40px;
+    }
+
+    #closeMenu{
+        font-size: 2.5vw;
+        height: 7.5%;
+        width: 17%;
+    }
+
+    /* Notification Rules */
+    #alertContainer{
+        padding : 1%;
+        padding-left : 2%;
+        padding-right : 2%;
+    }
+    #alertText {
+        font-size: 1.8vw;
+    }
+}
+
+
+
+
+
+
+

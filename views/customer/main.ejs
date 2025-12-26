@@ -1,0 +1,305 @@
+<%- include("./includes/header.ejs"); -%>
+    <%- include("./includes/css/mainCSS.ejs"); -%>
+
+
+        <div class="row no-gutters">
+            <!-- Section for upcoming appointments -->
+            <% if(upcoming.length !== 0) { %>
+                <h1 class="col-12 title1">Upcoming</h1>
+                <% for(y = 0; y < upcoming.length; y++) { %>
+                    <div class="upcomingContainer col-12 col-md-6 col-lg-4">
+                    <% if(y % 2 === 0) { %>
+                        <a class="altButtons2 matchButtonSize elmSmallestMarginTop centerText">
+                    <% } else { %>
+                        <a class="altButtons1 matchButtonSize elmSmallestMarginTop centerText">
+                    <% } %>
+                            <div class="row no-gutters">
+                                <div class="col-4">
+                                    <img src="<%= upcoming[y].appointmentPic %>" class="iconImage verticalAlign"/>
+                                </div>
+                                <div class="col-8 upcomingData">
+                                    <div class="elmSmallestMarginTop text"><%= upcoming[y].day %> @ <%= upcoming[y].time %></div>
+                                    <div class="elmSmallestMarginTop text">With <%= upcoming[y].stylistName %></div>
+                                    <div class="elmSmallestMarginTop text">For <%= upcoming[y].serviceName %></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %> <!-- End of Loop -->
+            <% } else { %> <!-- End of "upcoming" if -->
+                <h1 class="col-12">Upcoming</h1>
+                <div>You have no upcoming appointments</div>
+            <% } %>
+
+
+            <!-- Section for saved appointment templates -->
+            <% if(saved.length !==0){ %>
+                <h1 class="col-12 title1">Saved</h1>
+                <% for(x=0; x < saved.length; x++) { %>
+                    <div class="savedContainer col-12 col-md-6 col-lg-4">
+                    <% if(x % 2 === 0) { %>
+                        <a class="altButtons2 elmSmallestMarginTop centerText">
+                    <% } else { %>
+                        <a class="altButtons1 elmSmallestMarginTop centerText">
+                    <% } %>
+                            <div class="row no-gutters">
+                                <div class="col-4">
+                                    <img class="iconImage verticalAlign" src="<%= saved[x].servicePic %>" />
+                                </div>
+                                <div class="col-8">
+                                    <div class="text"><%= saved[x].appointmentName %></div>
+                                    <div class="text"><%= saved[x].stylistName %></div>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="savedDetailsContainer cardBackground hidden">
+                            
+                            <div class="viewDetials">
+                                <% for(z=0; z < saved[x].serviceIDList.length; z++) { %>
+                                    <div class="savedServiceID hidden">
+                                        <%= saved[x].serviceIDList[z] %>
+                                    </div>
+                                <% } %>
+                                <div class="appointmentNameContainer elmSmallestMarginTop">
+                                    <div class="title3">Appointment Name</div>
+                                    <div class="appointmentName text"><%= saved[x].appointmentName %></div>
+                                </div>
+                                <div class="savedStylistContainer elmSmallestMarginTop">
+                                    <div class="title3">Stylist Name</div>
+                                    <div class="savedStylistName text"><%= saved[x].stylistName %></div>
+                                    <div class="savedStylistID hidden"><%= saved[x].stylistID %></div>
+                                </div>
+                                <div class="savedServiceContainer elmSmallestMarginTop">
+                                    <% for(let i =0; i < saved[x].serviceList.length; i++){ %>
+                                        <div class="savedService hidden"><%= saved[x].serviceList[i] %></div>
+                                        <div class="savedServiceID hidden"><%= saved[x].serviceIDList[i] %></div>
+                                    <% } %>
+                                    </div>
+                                <div class="appointmentNotesContainer elmSmallestMarginTop">
+                                    <div class="title3">Notes</div>
+                                    <% if(saved[x].notes === "") { %>
+                                        <div class="text">No notes</div>
+                                        <div class="savedNotes hidden"></div>
+                                    <% } else { %>
+                                        <div class="savedNotes text"><%= saved[x].notes %> </div>
+                                    <% } %>
+                                </div>
+                                <div class="appointmentPicContainer elmSmallestMarginTop">
+                                    <div class="title3">Appointment Picture</div>
+                                    <% if(saved[x].servicePic === ""){ %>
+                                        <div class="text">None</div>
+                                        <div class="servicePic hidden"></div>
+                                    <% } else { %>
+                                        <img class="servicePic" src="<%= saved[x].servicePic %>" />
+                                    <% } %>
+                                </div>
+                                <div class="editTemplateCoantinerButton cardContent">
+                                    <a class="editTemplateButton centerText buttonNeutral elmSmallestMarginTop elmSmallestMarginBottom">Edit Template</a>
+                                </div>
+                                <div class="newFormTemplateContainer cardContent">
+                                    <a class="newFromTemplate centerText buttonPrimary elmSmallestMarginTop elmSmallestMarginBottom">Make Appointment</a>
+                                </div>
+                                <div class="templateMakeAppointmentContainer hidden">
+                                    <div class="templateTimeContainer row">
+    
+                                    </div>
+                                    <div class="templateAppointmentButtonContainer">
+                                        <a class="buttonPrimary templateAppointmentButton elmSmallMarginTop">Create!</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="editDetails hidden">
+                                <div class="savedTimeSlots hidden"><%= saved[x].timeSlots %></div>
+                                <div class="savedStylistID hidden"><%= saved[x].stylistID %></div>
+                                <div class="templateID hidden"><%= saved[x]._id %></div>
+                                <div class="appointmentNameContainerEdit elmSmallMarginTop">
+                                    <div class="title3">Appointment Name</div>
+                                    <input class="appointmentNameEdit inputStyle text" value="<%= saved[x].appointmentName %>"/>
+                                    <div class="error hidden appointmentNameEditError text">Appointment name is required</div>
+                                </div>
+                                <div class="currentSavedServiceContainerEdit elmSmallMarginTop">
+                                    <div class="title3">Current Services</div>
+                                    <div class="currentSavedServiceEdit text"><%= saved[x].appointmentName %></div>
+                                    <div class="showServicesContainer">
+                                        <div class="buttonNeutral showServices centerText">Change Services</div>
+                                    </div>
+                                </div>
+                                <div class="savedServiceContainerEdit elmSmallestMarginTop row hidden">
+                                    <!-- Appended when the edit button is pressed. Function found in main.js  -->
+                                </div>
+                                <div class="appointmentNotesContainerEdit elmSmallMarginTop">
+                                    <div class="title3">Notes</div>
+                                    <textarea class="savedNotesEdit text"><%= saved[x].notes %> </textarea>    
+                                </div>
+                                
+                                <div class="imgContainer">
+                                    <div class="appointmentPicContainerEdit elmSmallMarginTop">
+                                        <div class="title3">Orginal Picture</div>
+                                        <% if(saved[x].servicePic === ""){ %>
+                                            <div class="text">None</div>
+                                            <div class="appointmentPicEdit hidden"></div>
+                                        <% } else { %>
+                                            <img class="appointmentPicEdit" src="<%= saved[x].servicePic %>" />
+                                        <% } %>
+                                    </div>
+                                    <div class="imgLabelContainer elmSmallMarginTop">
+                                        <label for="photo" class="col-12 label elmMarginTop">Replace Picture</label>
+                                    </div>
+
+                                    <a class="col-md-12 buttonNeutral centerText imgNoCrop">
+                                        Select Image
+                                        <input class="imgNoCropInput hidden" type="file" accept="image/*" />
+                                    </a>
+                    
+                                    <div id="imgPreviewContainer" class="col-12 col-md-8 offset-md-2">
+                                        <canvas class="imgPreviewNoCrop"></canvas>
+                                        <div class="col-12">
+                                            <a class="buttonSecondary centerText elmSmallestMarginTop elmSmallestMarginBottom cancelNoCrop">Cancel Image</a>
+                                        </div>
+                                    </div><!--End of imgPreviewContainer-->
+                                </div>
+                                <div class="closeEditContainer cardContent">
+                                    <a class="closeEdit centerText buttonNeutral elmSmallestMarginTop elmSmallestMarginBottom">Close</a>
+                                </div>
+                                <div class="submitEditContainer cardContent">
+                                    <a class="submitEdit centerText buttonPrimary elmSmallestMarginTop elmSmallestMarginBottom">Submit Edit</a>
+                                </div>
+                                <div class="deleteSavedAppointmentContainer cardContent">
+                                    <a class="deleteSavedAppointment centerText buttonCaution elmSmallestMarginTop elmSmallestMarginBottom">Delete</a>
+                                </div>
+                            </div><!--End of edit details-->
+                        </div><!-- End of saved deatils -->
+                    </div> <!-- End of saved appointemnt container -->
+                <% } %><!-- End of for loop -->
+            <% } else { %><!-- End of if statment for saved appointments -->
+                <h1 class="col-12 title1">Saved</h1>
+                <div>You have no upcoming appointments</div>
+            <% } %>
+
+
+            <!-- Start of new appointment container -->
+            <div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 elmMarginTop text hidden" id="newAppointmentContainer">
+                <h1 class="col-12 title1">New Appointment</h1>
+
+                <div id="newAppointmentNameContainer" class="elmSmallMarginTop">
+                    <div id="newAppointmentNameLabelContainer">
+                        <label class="label" for="newAppointmentNameInput">Appointment Name</label>
+                    </div>
+                    <div id="newAppointmentNameInputContainer">
+                        <input type="text" class="input inputStyle elmPaddingTop" id="newAppointmentNameInput" />
+                        <div id="newAppointmentNameError" class="error hidden col-12">Appointment name is required</div>
+                    </div>
+                </div>
+
+                <!-- Saved Stylist Section -->
+                <div id="savedStylistContainer" class="elmMarginTop">
+                    <h2 class="col-12">Saved Stylist</h2>
+                    <% if(savedStylist.stylistID !== undefined) { %>
+                        <div class="col-12 stylistContainer elmSmallestMarginTop">
+                            <a class="stylist row no-gutters buttonNeutral selected">
+                                <div class="col-4 imageContainer">
+                                    <img src="<%= savedStylist.image %>" id="perferedStylistImg" class="iconImage"/>
+                                </div>
+                                <div class="col-8 stylistDetails centerText">
+                                    <div class="stylistName verticalAlign" id="perferedStylistName"><%= savedStylist.name %></div>
+                                    <div class="stylistID hidden" id="perferedStylistID"><%= savedStylist.stylistID %></div>
+                                </div>
+                            </a>
+                        </div>
+                    <% } else { %>
+                        <div> You have no saved stylist </div>
+                    <% } %>
+                </div>
+
+                <div id="stylistContainer" class="elmMarginTop">
+                    <!-- Javascript appends avalible stylist found in javascript/customer/main.js -->
+                    <div id="stylistFilterContainer" class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 elmSmallMarginTop text">
+                        <div class="col-12 elmSmallestMarginTop" id="nameSearchLabelContainer">
+                            <label class="label" for="search">Stylist Search</label>
+                        </div>
+                        <div class="col-12" id="searchInputContainer">
+                            <input type="search" id="search" placeholder="Search by name or place" class="inputStyle" />
+                        </div>
+                    </div>
+                    <div id="stylistError" class="error hidden col-12">Please select a stylist</div>
+                    <div id="stylistFoundContainer" class="elmSmallMarginTop">
+
+                    </div>
+                    <div id="perferedStylistContainer" class="elmSmallMarginTop">
+                        <div class="col-12">
+                            <label class="label" id="perferedStylistLabel" for="perferedStylist">Perfered Stylist?</label>
+                        </div>
+                        <div id="perferedStylistSelectContainer">
+                            <select id="perferedStylist" class="inputStyle">
+                                <option value="true" selected>Yes</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                            <!-- Saved Appointment Section -->
+                <div id="newSaveAppointemntContainer" class="elmSmallMarginTop">
+                    <div id="newSaveAppointemntLabelContainer">
+                        <label class="label" for="saveAppointment">Save Appointment?</label>
+                    </div>
+                    <div id="newSaveAppointemntInputContainer">
+                        <select id="saveAppointment" class="inputStyle">
+                            <option value="true" selected>Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="serviceError" class="error hidden col-12">Please select a service</div>
+                <div id="serviceContainer" class="elmSmallMarginTop">
+                    <!-- Javascript appends avalible times found in javascript/customer/main.js -->
+                </div>
+
+                <div id="timesContainer" class="elmMarginTop">
+                    <div id="timeError" class="error hidden col-12">Please select a time</div>
+                    <!-- Javascript appends avalible times found in javascript/customer/main.js -->
+                </div>
+
+                <div id="appointmentNotesContainer" class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 elmSmallMarginTop text">
+                    <div id="appointmentNotesLabelContainer">
+                        <label class="label">Appointment Notes</label>
+                    </div>
+                    <div id="appointmentNotesInputContainer">
+                        <textarea id="appointmentsNotes" class="elmSmallMarginTop"></textarea>
+                    </div>
+                </div>
+
+                <div id="appointmentPhotoContainer" class="elmMarginTop">
+
+                    <label for="photo" class="col-12 label elmMarginTop">Appointment Image</label>
+
+                    <a class="col-md-12 buttonNeutral centerText imgNoCrop">
+                        Select Image
+                        <input class="imgNoCropInput hidden" type="file" accept="image/*" />
+                    </a>
+
+                    <div id="imgPreviewContainer" class="col-12 col-md-8 offset-md-2">
+                        <canvas class="imgPreviewNoCrop"></canvas>
+                        <div class="col-12">
+                            <a class="buttonSecondary centerText elmSmallestMarginTop elmSmallestMarginBottom cancelNoCrop">Cancel Image</a>
+                        </div>
+                    </div><!--End of imgPreviewContainer-->
+                </div><!--End of appointmentPhotoContainer-->
+
+                <div id="submitContainer" class="col-12 col-md-8 offset-md-2">
+                    <a id="newAppointmentButton" class="buttonPrimary centerText">Submit New Appointment</a>
+                </div>
+            </div>
+            <!--End of new appointmentContainer-->
+
+            <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 elmMarginTop">
+                <a class="buttonPrimary centerText" id="appointmentToggle">New Appointment</a>
+            </div>
+            
+        </div><!--End of main row-->
+
+
+<%- include("./includes/footer.ejs"); -%>
+<%- include("./includes/js/mainJS.ejs"); -%>

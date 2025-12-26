@@ -1,0 +1,37 @@
+ 
+                
+
+                
+            </div><!--End of div Main started in  header-->                       
+        </div><!-- End of Col-10 started in header -->
+        <div id="nav" class="col-12 hidden">
+            <div class="row no-gutters">
+                <div class="col-4 offset-1 navVerticalAlign" id="headerName">
+                    <% if(name !== null && name !== undefined) { %>
+                        Hi <%=name%>
+                    <% } else { %>
+                        Welcome
+                    <% } %>    
+                </div>
+                <div class="col-6 offset-1 col-md-4 offset-md-2" id="iconSelections">
+                    <a href="/main"><img src="/icon/home.svg" alt="Home Icon" class="icon navVerticalAlign"/></a>
+                    <a class="menuButton"><img src="/icon/menu.png" alt="Menu Icon" class="icon navVerticalAlign"/></a>
+                </div>
+            </div>
+            <div id="menu">
+                <a class="title3 menuLinkContainer elmSmallMarginTop" href="/profile">
+                    <img class="menuIcon contentCenter" src="/icon/pencil.svg"/> 
+                    <span class="menuLinkText contentCenter">
+                        Edit Profile
+                    </span>
+                </a>
+                <a type="button" class="menuButton elmSmallMarginTop" id="closeMenu">x</a>
+            </div>  
+        </div>
+        <footer>
+            <script src="/js/styles.js" defer></script>  
+            <script src="/js/controller.js" defer></script>
+            <script src="/js/global.js" defer></script>
+        </footer>
+    </body><!-- End of body -->
+</html><!-- End of HTML started in header -->
