@@ -1,6 +1,6 @@
 # Premier Scheduling
 - High level
-    Premier Scheduling is an appointment management application built with Node to reduce error in book scheduling.
+    * Premier Scheduling is an appointment management application built with Node to reduce error in book scheduling.
 
 
 # Features
